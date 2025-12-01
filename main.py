@@ -6,7 +6,7 @@ from database import Base, engine
 from schemas import TextRequest, TextResponse, ImageResponse, VoiceResponse
 from ai_services import generate_text, process_image, voice_to_text
 
-# --- Створюємо таблиці, якщо їх ще немає
+
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="AI Content Assistant")
@@ -86,3 +86,4 @@ def create_voice(file: UploadFile = File(...), db: Session = Depends(get_db)):
     db.refresh(db_request)
 
     return VoiceResponse(id=db_request.id, result=db_request.result)
+
