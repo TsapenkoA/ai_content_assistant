@@ -29,9 +29,10 @@ Thumbs.db
 *.key
 *.env
 
-# Images / Audio (якщо ти не хочеш комітити великі файли)
+# Images / Audio
 *.png
 *.jpg
 *.jpeg
 *.wav
 *.mp3
+
