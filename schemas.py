@@ -7,14 +7,14 @@ class TextRequest(BaseModel):
 class TextResponse(BaseModel):
     id: int
     prompt: str
-    result: str  # тут має бути 'result', а не 'generated_text'
+    result: str
 
     class Config:
         from_attributes = True
 
 # --- Image ---
 class ImageRequest(BaseModel):
-    filename: str  # або file: UploadFile, якщо хочеш приймати файл через API
+    filename: str 
 
 class ImageResponse(BaseModel):
     id: int
@@ -33,3 +33,4 @@ class VoiceResponse(BaseModel):
 
     class Config:
         from_attributes = True
+
