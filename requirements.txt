@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+sqlalchemy
+asyncpg
+pydantic
+openai
+python-multipart
+Pillow
+SpeechRecognition
+python-dotenv
+psycopg2-binary
