@@ -1,53 +1,36 @@
-# AI Content Assistant (FastAPI · OpenAI · PostgreSQL/SQLite)
+# AI Content Assistant
 
-AI Content Assistant is a lightweight API service designed to handle text generation, basic image processing, and voice-to-text transcription.  
-It demonstrates a clean backend architecture based on **FastAPI**, **SQLAlchemy**, **Pydantic**, and optional integration with **OpenAI API**.
+## Purpose of the Project
+The **AI Content Assistant** is a demonstration service designed to showcase a practical integration of AI, backend, and web development.  
+Its purpose is to provide a fully functional API where users can:
 
-The service provides a unified interface for working with different AI-related tasks while storing request history in a relational database.
+- Generate text based on a prompt.
+- Process images for basic analysis.
+- Convert audio files into text via transcription.
 
----
-
-## ⭐ Features
-
-### 🔹 Text Processing
-- Generate text responses using OpenAI (or fallback mock mode).
-- Store each request and result in the database.
-- Centralized error handling for API failures or quota issues.
-
-### 🔹 Image Processing
-- Upload and process images (mock mode or extendable real processing).
-- Automatic temporary file storage.
-- Database logging of every operation.
-
-### 🔹 Voice Transcription
-- Upload audio files and receive transcribed text (mock mode or extendable Whisper integration).
-- Works with multipart/form-data uploads.
-- All requests stored in DB.
-
-### 🔹 Additional Features
-- Interactive API documentation via Swagger (`/docs`).
-- Modular and extendable project structure.
-- Fully asynchronous FastAPI endpoints.
+All user requests and AI-generated results are stored in a database for further reference.
 
 ---
 
-## 🛠️ Technologies Used
+## Project Description
+This project demonstrates a complete workflow for an AI-powered content assistant:
 
-### **Backend**
-- **FastAPI** — high-performance asynchronous Python framework.
-- **Uvicorn** — ASGI server for running the application.
+1. **Text generation** – Users provide a prompt, and the service returns AI-generated text.  
+2. **Image processing** – Users upload an image, and the service returns a processed result (currently a mock).  
+3. **Voice transcription** – Users upload an audio file, and the service returns transcribed text (currently a mock).  
+4. **Database logging** – All requests and responses are saved in PostgreSQL or SQLite using SQLAlchemy ORM.
 
-### **AI / Processing**
-- **OpenAI API** (Chat Completions, Whisper, Vision) — optional integration.
-- **Pillow** (optional) — for image manipulation.
-- **FFmpeg + Whisper** (optional) — for audio transcription.
+The project is structured to clearly separate concerns: API routes, database models, AI services, and validation schemas.
 
-### **Database**
-- **SQLAlchemy ORM** — database modeling and queries.
-- **PostgreSQL** — primary recommended database.
-- **SQLite** — local fallback for simple setups.
+---
 
-### **Data Models & Validation**
-- **Pydantic v2** — input/output schemas.
+## Technologies Used
+- **Python** – core programming language for backend logic and AI integration.
+- **FastAPI** – handles REST API endpoints, routing, and request validation.
+- **SQLAlchemy** – ORM for database models and interaction.
+- **PostgreSQL / SQLite** – relational database for storing user requests and AI results.
+- **Artificial Intelligence (AI)** – integration with OpenAI GPT models for text generation.
+- **Machine Learning (ML)** – project structure allows adding ML-based image and audio processing.
+- **Web Development** – REST API design with Swagger UI for interactive testing.
 
 ---
