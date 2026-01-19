@@ -1,6 +1,5 @@
 from pydantic import BaseModel
 
-# --- Text ---
 class TextRequest(BaseModel):
     prompt: str
 
@@ -12,7 +11,6 @@ class TextResponse(BaseModel):
     class Config:
         from_attributes = True
 
-# --- Image ---
 class ImageRequest(BaseModel):
     filename: str 
 
@@ -23,9 +21,8 @@ class ImageResponse(BaseModel):
     class Config:
         from_attributes = True
 
-# --- Voice ---
 class VoiceRequest(BaseModel):
-    filename: str  # або file: UploadFile
+    filename: str 
 
 class VoiceResponse(BaseModel):
     id: int
@@ -33,4 +30,3 @@ class VoiceResponse(BaseModel):
 
     class Config:
         from_attributes = True
-
