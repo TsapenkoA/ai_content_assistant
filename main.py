@@ -15,9 +15,6 @@ app = FastAPI(title="AI Content Assistant")
 def read_root():
     return {"message": "AI Content Assistant is running!"}
 
-# ---------------------------
-# TEXT
-# ---------------------------
 @app.post("/generate_text", response_model=TextResponse)
 def create_text(request_data: TextRequest, db: Session = Depends(get_db)):
     result_text = generate_text(request_data.prompt)
@@ -39,9 +36,6 @@ def create_text(request_data: TextRequest, db: Session = Depends(get_db)):
         result=db_request.result
     )
 
-# ---------------------------
-# IMAGE
-# ---------------------------
 @app.post("/process_image", response_model=ImageResponse)
 def create_image(file: UploadFile = File(...), db: Session = Depends(get_db)):
     try:
@@ -63,9 +57,6 @@ def create_image(file: UploadFile = File(...), db: Session = Depends(get_db)):
 
     return ImageResponse(id=db_request.id, result=db_request.result)
 
-# ---------------------------
-# VOICE
-# ---------------------------
 @app.post("/voice_to_text", response_model=VoiceResponse)
 def create_voice(file: UploadFile = File(...), db: Session = Depends(get_db)):
     try:
@@ -86,4 +77,3 @@ def create_voice(file: UploadFile = File(...), db: Session = Depends(get_db)):
     db.refresh(db_request)
 
     return VoiceResponse(id=db_request.id, result=db_request.result)
-
